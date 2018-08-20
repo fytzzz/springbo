@@ -1,0 +1,32 @@
+1.springboot + mybatis整合（OK-2018-08-19）
+2.查询分页（TODO-）
+3.多个数据源的配置（TODO-）
+4.mybatis通用数据库的操作方法（OK-2018-08-19）
+5.数据库事物的处理（TODO-注解可以解决）
+6.mybatis-数据库自动代码的生成（OK-2018-08-20）
+
+结论：
+mapper.xml和注解可以混合使用，但是ID不能重复。
+
+<!-- xml的方式 -->
+<resultMap id="BaseResultMap" type="com.example.demo.model.UserEntity" >
+        <id column="id" property="id" jdbcType="BIGINT" />
+        <result column="userName" property="userName" jdbcType="VARCHAR" />
+        <result column="passWord" property="passWord" jdbcType="VARCHAR" />
+        <result column="user_sex" property="userSex" jdbcType="VARCHAR"/>
+    <result column="nick_name" property="nickName" jdbcType="VARCHAR" />
+</resultMap>
+<sql id="Base_Column_List" >
+    id, userName,passWord,user_sex,nick_name
+</sql>
+
+<select id="getAll2" resultMap="BaseResultMap"  >
+   SELECT 
+   <include refid="Base_Column_List" />
+   FROM users
+</select>
+
+<!--注解的方式 -->
+@Select("SELECT * FROM users")
+@Results({ @Result(property = "userSex", column = "user_sex"),@Result(property = "nickName", column = "nick_name") })
+List<UserEntity> getAll();
