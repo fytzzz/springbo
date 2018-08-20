@@ -14,18 +14,27 @@ import com.example.demo.service.UserService;
 @Controller
 @RequestMapping("/home")
 public class HomeController {
-	
+
 	@Autowired
 	private UserService userServiceImpl;
 
-	@RequestMapping(value = "index", method = RequestMethod.GET)
+	@RequestMapping(value = "hello1", method = RequestMethod.GET)
 	@ResponseBody
-	public String hello() {
-		List<UserEntity> users = userServiceImpl.getAll();	
-		return "dada" + users.size();
+	public String hello1() {
+		List<UserEntity> users = userServiceImpl.getAll();
+		return "hello1-" + users.size();
 		// UserEntity user = userServiceImpl.selectUserByName("fangyt");
 		// return homeServiceImpl.getHello(user.getUserName(),
 		// user.getPassWord(), user.getUserSex());
 	}
 
+	@RequestMapping(value = "hello2", method = RequestMethod.GET)
+	@ResponseBody
+	public String hello2() {
+		List<UserEntity> users = userServiceImpl.getAll2();
+		return "hello2-" + users.size();
+		// UserEntity user = userServiceImpl.selectUserByName("fangyt");
+		// return homeServiceImpl.getHello(user.getUserName(),
+		// user.getPassWord(), user.getUserSex());
+	}
 }

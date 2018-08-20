@@ -6,4 +6,6 @@ import com.example.demo.model.UserEntity;
 
 public interface UserService {
 	public List<UserEntity> getAll();
+
+	public List<UserEntity> getAll2();
 }

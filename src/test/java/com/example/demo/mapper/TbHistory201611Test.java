@@ -15,12 +15,18 @@ public class TbHistory201611Test {
 
 	@Autowired
 	private TbHistory201611Mapper tbHistory201611Mapper;
-	
+
 	@Test
-	public void testInsert() throws Exception {	
+	public void testGetOne() throws Exception {
 		TbHistory201611 history = tbHistory201611Mapper.getOne(80L);
 		Integer hisId = history.getId();
-		Assert.assertEquals(hisId,Integer.valueOf((int) 80L));
-	
+		Assert.assertEquals(hisId, Integer.valueOf((int) 80L));
+	}
+
+	@Test
+	public void testInsert() {
+		TbHistory201611 history = tbHistory201611Mapper.getOne(80L);
+		history.setPhone("15220289885");
+		tbHistory201611Mapper.insert(history);
 	}
 }
