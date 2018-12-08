@@ -1,0 +1,7 @@
+1.在eclipse上创建工程Spring starter Project
+2.在创建过程中选择 WEB；
+参考：
+https://docs.spring.io/spring-boot/docs/2.0.4.RELEASE/reference/htmlsingle/#getting-started-introducing-spring-boot
+
+Part II. Getting Started
+10.1.1 Maven Installation

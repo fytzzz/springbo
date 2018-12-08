@@ -1,0 +1,15 @@
+1.不同环境读取不同的配置;
+spring.profiles.active=test
+
+2.如果获取配置文件中的属性
+==
+@Autowired
+Environment env;
+注入Environment 使用getProperty获取数据 
+
+==
+直接使用@Value注解获取数据
+
+
+3.批量加载配置文件
+https://www.jianshu.com/p/7ab1a62b04ed?from=timeline
